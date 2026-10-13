@@ -2,12 +2,12 @@ import type { LucideIcon } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
+// Four strengths of the brand blue, so a row of cards has rhythm without leaving the palette
 const tones = {
-  blue: 'bg-blue-50 text-blue-600',
-  purple: 'bg-purple-50 text-purple-600',
-  green: 'bg-green-50 text-green-600',
-  orange: 'bg-orange-50 text-orange-600',
-  yellow: 'bg-yellow-50 text-yellow-600',
+  navy: 'bg-brand-800 text-white shadow-brand-800/30',
+  vivid: 'bg-brand-vivid text-white shadow-brand-600/30',
+  bright: 'bg-brand-500 text-white shadow-brand-500/30',
+  soft: 'bg-brand-100 text-brand-700 shadow-brand-200/60',
 };
 
 export interface StatCardProps {
@@ -17,16 +17,16 @@ export interface StatCardProps {
   tone?: keyof typeof tones;
 }
 
-export function StatCard({ label, value, icon: Icon, tone = 'blue' }: StatCardProps) {
+export function StatCard({ label, value, icon: Icon, tone = 'vivid' }: StatCardProps) {
   return (
-    <Card>
-      <CardContent className="flex items-center justify-between">
-        <div>
-          <p className="text-xs font-medium text-muted-foreground">{label}</p>
-          <p className="mt-1 text-2xl font-bold text-gray-900">{value}</p>
+    <Card className="transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-200/60">
+      <CardContent className="flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <p className="truncate text-xs font-medium tracking-wide text-muted-foreground uppercase">{label}</p>
+          <p className="mt-1 text-3xl font-bold tracking-tight text-brand-950 tabular-nums">{value}</p>
         </div>
-        <div className={cn('flex size-10 items-center justify-center rounded-lg', tones[tone])}>
-          <Icon className="size-5" />
+        <div className={cn('flex size-12 shrink-0 items-center justify-center rounded-xl shadow-lg', tones[tone])}>
+          <Icon className="size-6" />
         </div>
       </CardContent>
     </Card>

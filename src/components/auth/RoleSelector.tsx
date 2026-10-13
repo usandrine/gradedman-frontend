@@ -24,7 +24,7 @@ export function RoleSelector({ value, onChange }: RoleSelectorProps) {
           className={cn(
             'h-11 rounded-lg border-2 text-sm font-medium transition-all',
             value === role.value
-              ? 'border-primary bg-blue-50 text-blue-700'
+              ? 'border-primary bg-brand-50 text-brand-700'
               : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
           )}
         >

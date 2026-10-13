@@ -63,11 +63,11 @@ export function MaterialUploader() {
       {file && (
         <div className="space-y-3 rounded-lg border border-gray-200 p-3">
           <div className="flex items-center gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-50">
-              <FileText className="size-5 text-blue-600" />
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-50">
+              <FileText className="size-5 text-brand-600" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-gray-900">{file.name}</p>
+              <p className="truncate text-sm font-medium text-brand-950">{file.name}</p>
               <p className="text-xs text-muted-foreground">{formatFileSize(file.size)}</p>
             </div>
             <Button

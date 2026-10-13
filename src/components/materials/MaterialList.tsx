@@ -9,7 +9,7 @@ import { formatDate, formatFileSize } from '@/lib/format';
 import type { Material, MaterialStatus } from '@/lib/features/materials/materialsSlice';
 
 const statusStyles: Record<MaterialStatus, { label: string; className: string }> = {
-  uploaded: { label: 'Uploaded', className: 'bg-blue-100 text-blue-700' },
+  uploaded: { label: 'Uploaded', className: 'bg-brand-100 text-brand-700' },
   processing: { label: 'Processing', className: 'bg-yellow-100 text-yellow-700' },
   ready: { label: 'Ready', className: 'bg-green-100 text-green-700' },
   failed: { label: 'Failed', className: 'bg-red-100 text-red-700' },
@@ -60,12 +60,12 @@ function MaterialRow({ material, onDelete, onRetry }: { material: Material } & M
 
   return (
     <li className="flex items-center gap-3 py-3">
-      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-50">
-        <FileText className="size-5 text-blue-600" />
+      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-50">
+        <FileText className="size-5 text-brand-600" />
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-medium text-gray-900">{material.original_name}</p>
+        <p className="truncate text-sm font-medium text-brand-950">{material.original_name}</p>
         <p className="text-xs text-muted-foreground">
           {formatFileSize(material.size)} · {formatDate(material.created_at)}
         </p>

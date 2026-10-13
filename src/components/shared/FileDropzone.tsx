@@ -38,11 +38,11 @@ export function FileDropzone({ accept, maxSizeMB, onFileSelect, disabled = false
       }}
       className={cn(
         'flex w-full flex-col items-center justify-center rounded-xl border-2 border-dashed px-4 py-10 text-center transition-colors outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60',
-        dragging ? 'border-primary bg-blue-50' : 'border-gray-300 hover:border-primary hover:bg-blue-50/40'
+        dragging ? 'border-primary bg-brand-50' : 'border-gray-300 hover:border-primary hover:bg-brand-50/40'
       )}
     >
       <UploadCloud className="size-10 text-primary" />
-      <p className="mt-3 text-sm font-medium text-gray-900">
+      <p className="mt-3 text-sm font-medium text-brand-950">
         <span className="text-primary">Click to choose a file</span> or drag and drop it here
       </p>
       <p className="mt-1 text-xs text-muted-foreground">

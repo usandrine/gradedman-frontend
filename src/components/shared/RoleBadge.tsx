@@ -3,8 +3,8 @@ import { cn } from '@/lib/utils';
 import type { UserRole } from '@/lib/features/auth/authSlice';
 
 const roleStyles: Record<UserRole, string> = {
-  teacher: 'bg-purple-100 text-purple-700',
-  student: 'bg-green-100 text-green-700',
+  teacher: 'bg-brand-800 text-white',
+  student: 'bg-brand-100 text-brand-800',
 };
 
 export function RoleBadge({ role, className }: { role: UserRole; className?: string }) {

@@ -2,22 +2,21 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LogOut, User as UserIcon } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { User } from '@/lib/features/auth/authSlice';
 import { DASHBOARD_HOME, NAV_ITEMS, type NavItem } from '@/config/navigation';
 import { Logo } from '@/components/shared/Logo';
-import { RoleBadge } from '@/components/shared/RoleBadge';
 
-const navItemClass = 'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all';
+const navItemClass = 'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all';
 
 function NavLink({ item, active, onNavigate }: { item: NavItem; active: boolean; onNavigate?: () => void }) {
   if (item.comingSoon) {
     return (
-      <span className={cn(navItemClass, 'cursor-not-allowed text-gray-400')} aria-disabled="true">
+      <span className={cn(navItemClass, 'cursor-not-allowed text-white/35')} aria-disabled="true">
         <item.icon className="size-4 shrink-0" />
         {item.label}
-        <span className="ml-auto rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-semibold text-gray-500 uppercase">
+        <span className="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/60 uppercase">
           Soon
         </span>
       </span>
@@ -32,11 +31,11 @@ function NavLink({ item, active, onNavigate }: { item: NavItem; active: boolean;
       className={cn(
         navItemClass,
         active
-          ? 'bg-primary text-primary-foreground shadow-sm'
-          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+          ? 'bg-white text-brand-800 shadow-lg shadow-brand-950/40'
+          : 'text-brand-100 hover:bg-white/10 hover:text-white'
       )}
     >
-      <item.icon className="size-4 shrink-0" />
+      <item.icon className={cn('size-4 shrink-0', active && 'text-brand-600')} />
       {item.label}
     </Link>
   );
@@ -58,39 +57,37 @@ export function Sidebar({ user, onLogout, onNavigate }: SidebarProps) {
     href === home ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col bg-brand-gradient text-white">
       {/* Brand */}
-      <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-5">
-        <Logo />
+      <div className="flex items-center gap-3 px-6 py-6">
+        <Logo variant="light" />
         <div>
-          <p className="leading-none font-bold text-gray-900">Gradedman</p>
-          <p className="mt-0.5 text-xs text-gray-400">AI Exam Platform</p>
-        </div>
-      </div>
-
-      {/* User info */}
-      <div className="border-b border-gray-100 p-4">
-        <div className="flex items-center gap-3 rounded-lg bg-blue-50 p-2">
-          <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary">
-            <UserIcon className="size-4 text-primary-foreground" />
-          </div>
-          <div className="min-w-0">
-            <p className="truncate text-sm font-medium text-gray-900">{user.name}</p>
-            <RoleBadge role={user.role} className="mt-0.5" />
-          </div>
+          <p className="text-lg leading-none font-bold tracking-tight">Gradedman</p>
+          <p className="mt-1 text-xs text-brand-200">AI Exam Platform</p>
         </div>
       </div>
 
       {/* Nav Links */}
-      <nav className="flex-1 space-y-1 overflow-y-auto p-4">
+      <nav className="flex-1 space-y-1 overflow-y-auto px-4 py-2">
+        <p className="px-3 pb-2 text-[11px] font-semibold tracking-wider text-brand-300 uppercase">Menu</p>
         {NAV_ITEMS[user.role].map((item) => (
           <NavLink key={item.href} item={item} active={isActive(item.href)} onNavigate={onNavigate} />
         ))}
       </nav>
 
-      {/* Logout */}
-      <div className="border-t border-gray-100 p-4">
-        <button onClick={onLogout} className={cn(navItemClass, 'w-full text-red-600 hover:bg-red-50')}>
+      {/* User + logout */}
+      <div className="space-y-2 p-4">
+        <div className="flex items-center gap-3 rounded-xl bg-white/10 p-3 ring-1 ring-white/10">
+          <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold text-brand-800">
+            {user.name.charAt(0).toUpperCase()}
+          </div>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold">{user.name}</p>
+            <p className="text-xs text-brand-200 capitalize">{user.role}</p>
+          </div>
+        </div>
+
+        <button onClick={onLogout} className={cn(navItemClass, 'w-full text-brand-100 hover:bg-white/10 hover:text-white')}>
           <LogOut className="size-4" />
           Sign out
         </button>

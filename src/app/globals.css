@@ -3,27 +3,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Gradedman theme: dark blue and white, with a bright blue for energy */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  /* Brand blue (Tailwind blue-600) */
-  --primary: oklch(0.546 0.245 262.881);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: #0a1437;
+  --card: #ffffff;
+  --card-foreground: #0a1437;
+  --popover: #ffffff;
+  --popover-foreground: #0a1437;
+  /* Dark blue — buttons, active states, the sidebar */
+  --primary: #10247a;
+  --primary-foreground: #ffffff;
+  --secondary: #e9efff;
+  --secondary-foreground: #10247a;
+  --muted: #f0f4fc;
+  --muted-foreground: #56638a;
+  --accent: #e9efff;
+  --accent-foreground: #10247a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.623 0.214 259.815);
+  --border: #dce4f5;
+  --input: #cfd9ef;
+  --ring: #3d6bff;
 }
 
 @theme inline {
@@ -50,6 +51,29 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* The brand blue scale — use these (bg-brand-600, text-brand-900, ...) instead of Tailwind's blue */
+  --color-brand-50: #f3f6ff;
+  --color-brand-100: #e4ebff;
+  --color-brand-200: #c9d7ff;
+  --color-brand-300: #a0b8ff;
+  --color-brand-400: #6f92ff;
+  --color-brand-500: #3d6bff;
+  --color-brand-600: #2450e6;
+  --color-brand-700: #1a3bb8;
+  --color-brand-800: #10247a;
+  --color-brand-900: #0b1a57;
+  --color-brand-950: #060e33;
+}
+
+/* Deep navy fading into bright blue — the sidebar, hero banners and sign-in screen */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, var(--color-brand-950) 0%, var(--color-brand-800) 50%, var(--color-brand-600) 100%);
+}
+
+/* Brighter version for small accents such as icon tiles and the primary button */
+@utility bg-brand-vivid {
+  background-image: linear-gradient(135deg, var(--color-brand-700) 0%, var(--color-brand-500) 100%);
 }
 
 @layer base {
@@ -58,5 +82,8 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+  }
+  ::selection {
+    background: var(--color-brand-200);
   }
 }

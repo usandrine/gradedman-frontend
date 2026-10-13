@@ -43,7 +43,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (!user && userStatus === 'failed') {
     return (
-      <div className="flex h-screen items-center justify-center bg-gray-50">
+      <div className="flex h-screen items-center justify-center bg-brand-50">
         <EmptyState
           icon={ServerCrash}
           title="Couldn't load your account"

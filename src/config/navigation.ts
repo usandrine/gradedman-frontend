@@ -28,13 +28,13 @@ export const NAV_ITEMS: Record<UserRole, NavItem[]> = {
   teacher: [
     { label: 'Dashboard', href: '/dashboard/teacher', icon: LayoutDashboard },
     { label: 'Upload Materials', href: '/dashboard/teacher/upload', icon: Upload },
-    { label: 'Generate Questions', href: '/dashboard/teacher/generate', icon: FileQuestion, comingSoon: true },
-    { label: 'My Exams', href: '/dashboard/teacher/exams', icon: ClipboardList, comingSoon: true },
-    { label: 'Results', href: '/dashboard/teacher/results', icon: BarChart3, comingSoon: true },
+    { label: 'Generate Questions', href: '/dashboard/teacher/generate', icon: FileQuestion },
+    { label: 'My Exams', href: '/dashboard/teacher/exams', icon: ClipboardList },
+    { label: 'Results', href: '/dashboard/teacher/results', icon: BarChart3 },
   ],
   student: [
     { label: 'Dashboard', href: '/dashboard/student', icon: LayoutDashboard },
-    { label: 'Available Exams', href: '/dashboard/student/exams', icon: BookOpen, comingSoon: true },
-    { label: 'My Results', href: '/dashboard/student/results', icon: Trophy, comingSoon: true },
+    { label: 'Available Exams', href: '/dashboard/student/exams', icon: BookOpen },
+    { label: 'My Results', href: '/dashboard/student/results', icon: Trophy },
   ],
 };

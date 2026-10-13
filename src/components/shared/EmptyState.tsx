@@ -13,7 +13,7 @@ export function EmptyState({ icon: Icon, title, description, action }: EmptyStat
       <div className="flex size-12 items-center justify-center rounded-full bg-muted">
         <Icon className="size-6 text-muted-foreground" />
       </div>
-      <h3 className="mt-3 font-semibold text-gray-900">{title}</h3>
+      <h3 className="mt-3 font-semibold text-brand-950">{title}</h3>
       {description && <p className="mt-1 max-w-sm text-sm text-muted-foreground">{description}</p>}
       {action && <div className="mt-4">{action}</div>}
     </div>
